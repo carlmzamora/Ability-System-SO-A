@@ -10,11 +10,15 @@ public class Projectile : MonoBehaviour, ITaggable, IModifiable
     [SerializeField] private List<Tag> tags = new List<Tag>();
     public List<Tag> Tags => tags;
 
-    [SerializeField] private FloatReference baseDamage;
-    [SerializeField] private float baseTravelSpeed;
+    [Space(10)]
 
     [SerializeField] private List<Modifier> modifiers = new List<Modifier>();
     public List<Modifier> Modifiers => modifiers;
+
+    [Space(10)]
+
+    [SerializeField] private FloatReference baseDamage;
+    [SerializeField] private float baseTravelSpeed;
 
     private Rigidbody rb;
 

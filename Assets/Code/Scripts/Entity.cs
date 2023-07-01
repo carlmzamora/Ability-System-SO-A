@@ -9,11 +9,18 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
     [SerializeField] protected List<Tag> tags = new List<Tag>();
     public List<Tag> Tags => tags;
 
+    [Space(10)]
+
     [SerializeField] protected List<Modifier> modifiers = new List<Modifier>();
     public List<Modifier> Modifiers => modifiers;
 
+    [Space(10)]
+
     [SerializeField] private FloatReference maxHealth;
+    public float MaxHealth => maxHealth.Value;
+
     [SerializeField, ReadOnly] private float currentHealth;
+    public float Health => currentHealth;
 
     private void OnEnable()
     {
@@ -55,6 +62,6 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
 
     public virtual void DamageHealth(float value)
     {
-        currentHealth -= value;
+        currentHealth = Mathf.Clamp(currentHealth -= value, 0.0f, maxHealth.Value);
     }
 }

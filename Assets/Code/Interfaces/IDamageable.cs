@@ -6,6 +6,8 @@ using ScriptableObjectArchitecture;
 
 public interface IDamageable
 {
+    float Health { get; }
+    float MaxHealth { get; }
     void SetHealth(float value);
     void DamageHealth(float amount);
 }
