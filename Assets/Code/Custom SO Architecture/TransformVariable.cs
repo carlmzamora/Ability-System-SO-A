@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ScriptableObjectArchitecture
+using ScriptableObjectArchitecture;
+
+namespace CustomScriptableObjectArchitecture
 {
     [System.Serializable]
     public class TransformEvent : UnityEvent<Transform> { }

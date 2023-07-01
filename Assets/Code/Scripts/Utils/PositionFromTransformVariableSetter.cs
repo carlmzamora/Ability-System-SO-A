@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using ScriptableObjectArchitecture;
+using CustomScriptableObjectArchitecture;
 
 public class PositionFromTransformVariableSetter : MonoBehaviour
 {
@@ -11,6 +11,6 @@ public class PositionFromTransformVariableSetter : MonoBehaviour
 
     private void Update()
     {
-        transform.position = toSet.Value.position + offset;
+        if(toSet != null) transform.position = toSet.Value.position + offset;
     }
 }

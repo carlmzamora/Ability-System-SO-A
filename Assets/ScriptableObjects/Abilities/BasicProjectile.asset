@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe47bfb970b398478ace6194f829de5, type: 3}
+  m_Name: BasicProjectile
+  m_EditorClassIdentifier: 
+  Name: BasicProjectile
+  duration: 0
+  cooldown: 0.2
+  projectileToSpawnPrefab: {fileID: 7376182849459072721, guid: f5c789a9660d67342a9049963a3a2b3f, type: 3}
+  spawnPoint: {fileID: 11400000, guid: b6fceade49c278e4e9029877d4e0cc5c, type: 2}

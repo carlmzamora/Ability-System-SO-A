@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using ScriptableObjectArchitecture;
+using CustomScriptableObjectArchitecture;
 
 public class TransformVariableUpdater : MonoBehaviour
 {
@@ -10,12 +10,12 @@ public class TransformVariableUpdater : MonoBehaviour
 
     private void Awake()
     {
-        toUpdate.Value = transform;
+        if(toUpdate != null) toUpdate.Value = transform;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        toUpdate.Value = transform;
+        if (toUpdate != null) toUpdate.Value = transform;
     }
 }

@@ -7,5 +7,5 @@ using ScriptableObjectArchitecture;
 public interface IDamageable
 {
     void SetHealth(float value);
-    void AddHealth(float amount);
+    void DamageHealth(float amount);
 }
