@@ -10,5 +10,5 @@ using UnityEngine;
 public class Tag : ScriptableObject
 {
     [Tooltip("GameObjects that will get destroyed by this GameObject on collision.")]
-    public List<Tag> DestroyOnCollisionList = new List<Tag>();
+    public List<Tag> DestroyOnCollisionList = new();
 }

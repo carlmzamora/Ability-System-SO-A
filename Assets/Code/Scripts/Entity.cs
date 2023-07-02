@@ -6,12 +6,12 @@ using ScriptableObjectArchitecture;
 
 public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
 {
-    [SerializeField] protected List<Tag> tags = new List<Tag>();
+    [SerializeField] protected List<Tag> tags = new();
     public List<Tag> Tags => tags;
 
     [Space(10)]
 
-    [SerializeField] protected List<Modifier> modifiers = new List<Modifier>();
+    [SerializeField] protected List<Modifier> modifiers = new();
     public List<Modifier> Modifiers => modifiers;
 
     [Space(10)]

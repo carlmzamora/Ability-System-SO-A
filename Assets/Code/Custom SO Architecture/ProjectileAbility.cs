@@ -23,7 +23,7 @@ public class ProjectileAbility : Ability
 
     [Space(5)]
 
-    [SerializeField] private List<Tag> projectileTags = new List<Tag>();
+    [SerializeField] private List<Tag> projectileTags = new();
 
     public override void Activate()
     {

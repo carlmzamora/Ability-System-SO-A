@@ -7,10 +7,10 @@ using ScriptableObjectArchitecture;
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour, ITaggable, IModifiable
 {
-    [SerializeField] private List<Modifier> modifiers = new List<Modifier>();
+    [SerializeField] private List<Modifier> modifiers = new();
     public List<Modifier> Modifiers => modifiers;
 
-    private List<Tag> tags = new List<Tag>();
+    private List<Tag> tags = new();
     public List<Tag> Tags => tags;    
 
     private Rigidbody rb;
