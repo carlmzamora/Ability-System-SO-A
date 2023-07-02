@@ -6,6 +6,7 @@ using ScriptableObjectArchitecture;
 
 public class Ability : ScriptableObject
 {
+    [Header("Ability Details")]
     [SerializeField] public string Name;
 
     [SerializeField] protected float duration;
@@ -14,7 +15,7 @@ public class Ability : ScriptableObject
     [SerializeField] protected float cooldown;
     public float Cooldown => cooldown;
 
-    //add modifierdata list
+    
 
     public virtual void Activate() { }
 }

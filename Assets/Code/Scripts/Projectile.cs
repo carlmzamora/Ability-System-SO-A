@@ -7,18 +7,11 @@ using ScriptableObjectArchitecture;
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour, ITaggable, IModifiable
 {
-    [SerializeField] private List<Tag> tags = new List<Tag>();
-    public List<Tag> Tags => tags;
-
-    [Space(10)]
-
     [SerializeField] private List<Modifier> modifiers = new List<Modifier>();
     public List<Modifier> Modifiers => modifiers;
 
-    [Space(10)]
-
-    [SerializeField] private FloatReference baseDamage;
-    [SerializeField] private float baseTravelSpeed;
+    private List<Tag> tags = new List<Tag>();
+    public List<Tag> Tags => tags;    
 
     private Rigidbody rb;
 
@@ -26,16 +19,36 @@ public class Projectile : MonoBehaviour, ITaggable, IModifiable
     public float Damage => currentDamage;
 
     private float currentTravelSpeed;
+    private float currentLifetime;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        currentDamage = baseDamage.Value;
-        currentTravelSpeed = baseTravelSpeed;
+        gameObject.SetActive(false);
+    }
+
+    public void SetupProjectile(float damage, float travelSpeed, float lifetime, List<Tag> tagsToAdd)
+    {
+        currentDamage = damage;
+        currentTravelSpeed = travelSpeed;
+        currentLifetime = lifetime;
+
+        for(int i = 0; i < tagsToAdd.Count; i++)
+        {
+            tags.Add(tagsToAdd[i]);
+        }
+
+        gameObject.SetActive(true);
     }
 
     private void OnEnable()
     {
         rb.AddForce(transform.forward * currentTravelSpeed);
+        Invoke("Destroy", currentLifetime);
+    }
+
+    private void Destroy()
+    {
+        Destroy(gameObject);
     }
 }
