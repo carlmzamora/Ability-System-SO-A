@@ -4,6 +4,7 @@ using UnityEngine;
 
 using ScriptableObjectArchitecture;
 
+//TODO: make ability data
 public class Ability : ScriptableObject
 {
     [Header("Ability Details")]

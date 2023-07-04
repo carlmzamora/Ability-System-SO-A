@@ -7,8 +7,8 @@ using ScriptableObjectArchitecture;
 
 [CreateAssetMenu(
         fileName = "ProjectileAbility.asset",
-        menuName = "Abilities/ProjectileAbility",
-        order = 131 + 0)]
+        menuName = CustomSOArchitecture.ABILITIES_SUBMENU + "ProjectileAbility",
+        order = CustomSOArchitecture.ASSET_MENU_ORDER_ABILITIES + 0)]
 public class ProjectileAbility : Ability
 {
     [Header("Projectile Ability Properties")]
@@ -24,10 +24,11 @@ public class ProjectileAbility : Ability
     [Space(5)]
 
     [SerializeField] private List<Tag> projectileTags = new();
+    [SerializeField] private List<ModifierData> abilityModifiers = new();
 
     public override void Activate()
     {
         Projectile projectile = Instantiate(projectileToSpawnPrefab, spawnPoint.Value.position, spawnPoint.Value.rotation).GetComponent<Projectile>();
-        projectile.SetupProjectile(baseDamage.Value, baseTravelSpeed, baseLifetime, projectileTags);
+        projectile.SetupProjectile(baseDamage.Value, baseTravelSpeed, baseLifetime, projectileTags, abilityModifiers);
     }
 }

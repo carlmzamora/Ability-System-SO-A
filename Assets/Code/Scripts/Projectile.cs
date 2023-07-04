@@ -10,6 +10,9 @@ public class Projectile : MonoBehaviour, ITaggable, IModifiable
     [SerializeField] private List<Modifier> modifiers = new();
     public List<Modifier> Modifiers => modifiers;
 
+    protected List<ModifierData> storedModifiers = new();
+    public List<ModifierData> StoredModifiers => storedModifiers;
+
     private List<Tag> tags = new();
     public List<Tag> Tags => tags;    
 
@@ -27,7 +30,7 @@ public class Projectile : MonoBehaviour, ITaggable, IModifiable
         gameObject.SetActive(false);
     }
 
-    public void SetupProjectile(float damage, float travelSpeed, float lifetime, List<Tag> tagsToAdd)
+    public void SetupProjectile(float damage, float travelSpeed, float lifetime, List<Tag> tagsToAdd, List<ModifierData> modifiersFromAbililty)
     {
         currentDamage = damage;
         currentTravelSpeed = travelSpeed;
@@ -38,7 +41,19 @@ public class Projectile : MonoBehaviour, ITaggable, IModifiable
             tags.Add(tagsToAdd[i]);
         }
 
+        ApplyModifiersFromAbility(modifiersFromAbililty);
+
         gameObject.SetActive(true);
+    }
+
+    //should add to own modifiers first??
+    //check for activation trigger, like if modifier should be applied immediately
+    private void ApplyModifiersFromAbility(List<ModifierData> modifiersFromAbility)
+    {
+        for (int i = 0; i < modifiersFromAbility.Count; i++)
+        {
+            storedModifiers.Add(modifiersFromAbility[i]);
+        }
     }
 
     private void OnEnable()

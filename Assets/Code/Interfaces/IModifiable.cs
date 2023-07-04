@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IModifiable
 {
     List<Modifier> Modifiers { get; }
+    List<ModifierData> StoredModifiers { get; }
 }

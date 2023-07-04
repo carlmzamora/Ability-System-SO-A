@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using ScriptableObjectArchitecture;
+using Unity.VisualScripting;
 
 public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
 {
     [SerializeField] protected List<Tag> tags = new();
     public List<Tag> Tags => tags;
 
-    [Space(10)]
-
-    [SerializeField] protected List<Modifier> modifiers = new();
+    protected List<Modifier> modifiers = new();
     public List<Modifier> Modifiers => modifiers;
 
-    [Space(10)]
+    protected List<ModifierData> storedModifiers = new();
+    public List<ModifierData> StoredModifiers => storedModifiers;
 
     [SerializeField] private FloatReference maxHealth;
     public float MaxHealth => maxHealth.Value;
@@ -25,6 +25,17 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
     private void OnEnable()
     {
         currentHealth = maxHealth.Value;
+    }
+
+    private void Update()
+    {
+        HandleModifiers();
+    }
+
+    private void CreateModifier(ModifierData receivedModifierData)
+    {
+        modifiers.Add(receivedModifierData.UnpackModifier(this));
+        receivedModifierData.UnpackListener(this);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -52,6 +63,7 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
         if(proj != null)
         {
             DamageHealth(proj.Damage);
+            CreateModifier(proj.StoredModifiers[0]);
         }
     }
 
@@ -63,5 +75,13 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
     public virtual void DamageHealth(float value)
     {
         currentHealth = Mathf.Clamp(currentHealth -= value, 0.0f, maxHealth.Value);
+    }
+
+    private void HandleModifiers()
+    {
+        for (int i = 0; i < modifiers.Count; i++)
+        {
+            modifiers[i].Update();
+        }
     }
 }
