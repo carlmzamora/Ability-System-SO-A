@@ -23,8 +23,8 @@ public class DamageOverTimeModifierData : ModifierData
     {
         eventToRaise.AddListener((parameters) =>
             {
-                if (parameters.entity == toListen)
-                    toListen.DamageHealth(parameters.floatValue);
+                if (parameters.GetObjectInfo(DamageOverTimeModifier.DAMAGE_OVER_TIME_LISTENER) as Entity == toListen)
+                    toListen.DamageHealth(parameters.GetFloatInfo(DamageOverTimeModifier.DAMAGE_OVER_TIME_DAMAGE, 0));
             });
     }
 }
