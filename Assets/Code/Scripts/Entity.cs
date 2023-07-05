@@ -34,7 +34,7 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
 
     private void CreateModifier(ModifierData receivedModifierData)
     {
-        modifiers.Add(receivedModifierData.UnpackModifier(this));
+        modifiers.Add(receivedModifierData.UnpackModifier(this)); //try to make this object type?
         receivedModifierData.UnpackListener(this);
     }
 
@@ -63,6 +63,8 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
         if(proj != null)
         {
             DamageHealth(proj.Damage);
+
+            //check all modifiers, not just one
             CreateModifier(proj.StoredModifiers[0]);
         }
     }

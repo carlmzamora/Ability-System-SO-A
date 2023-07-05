@@ -47,6 +47,19 @@ public class Projectile : MonoBehaviour, ITaggable, IModifiable
     }
 
     //should add to own modifiers first??
+    //rename IModifiable StoredModifiers to OtherwardModifiers (modifers not affecting self)
+    //rename IModifiable Modifiers to SelfModifiers (modifiers affecting self)
+    //modifiers should have affectsSelf bool
+    //Create AddModifiersModifierData, which carries anther ModifierData (eg. burning modifier)
+    //ApplyModifierFromAbility should now unpack ModifierData (eg. AddModifiersModifierData) to send Modifier to selfModifiers
+    //AddModifiersModifierData creates AddModifiersModifier to selfModifiers
+    //then CollectOtherwardsModifiersFromSelf should transfer ModifierDatas held by the AddModifiersModifier to otherwardsModifiers
+
+    //ex. burning projectiles ability modifier, affectsSelf=true
+    //ability modifier -> ApplyModifierFromAbility -> selfModifiers
+    //selfModifiers -> CollectOtherwardsModifiersFromSelf -> otherwardsModifiers
+    //proj.otherwardsModifiers -> entity.OnCollision -> entity.SelfModifiers
+
     //check for activation trigger, like if modifier should be applied immediately
     private void ApplyModifiersFromAbility(List<ModifierData> modifiersFromAbility)
     {
@@ -55,6 +68,8 @@ public class Projectile : MonoBehaviour, ITaggable, IModifiable
             storedModifiers.Add(modifiersFromAbility[i]);
         }
     }
+
+    //TODO: how about modifiers that add AOE? OnCollision checks?
 
     private void OnEnable()
     {

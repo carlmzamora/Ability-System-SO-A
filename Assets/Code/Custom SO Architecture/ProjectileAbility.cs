@@ -28,6 +28,7 @@ public class ProjectileAbility : Ability
 
     public override void Activate()
     {
+        //TODO: how about ability modifiers that modify the activation? like split shots?
         Projectile projectile = Instantiate(projectileToSpawnPrefab, spawnPoint.Value.position, spawnPoint.Value.rotation).GetComponent<Projectile>();
         projectile.SetupProjectile(baseDamage.Value, baseTravelSpeed, baseLifetime, projectileTags, abilityModifiers);
     }
