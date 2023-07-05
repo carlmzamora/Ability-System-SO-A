@@ -36,13 +36,13 @@ public class Parameters
 
     public void PutInfo(string parameterName, string value)
     {
-        stringListData ?? = new();
+        stringListData ??= new();
         stringListData.Add(parameterName, value);
     }
 
     public void PutInfo(string parameterName, int value)
     {
-        intListData ?? = new();
+        intListData ??= new();
         intListData.Add(parameterName, value);
     }
 
