@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Parameters
 {
+    [Multiline] public string Description;
     private Dictionary<string, char> charListData;
     private Dictionary<string, string> stringListData;
 

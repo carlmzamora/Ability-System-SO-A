@@ -9,9 +9,9 @@ namespace carlmzamora.AbilitySystem
         [Header("Base Modifier Details")]
         [SerializeField] protected float baseDuraton;
         [SerializeField] protected float baseTickTime;
-        [SerializeField] protected bool affectsSelf;
+        [SerializeField] protected bool onlyAffectsSelf;
 
-        public bool AffectsSelf => affectsSelf;
+        public bool OnlyAffectsSelf => onlyAffectsSelf;
 
         public abstract Modifier UnpackModifier(Entity toListen);
         public abstract void UnpackListener(Entity toListen);
