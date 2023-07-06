@@ -1,0 +1,28 @@
+using UnityEngine;
+using ScriptableObjectArchitecture;
+using carlmzamora.AbilitySystem;
+
+[CreateAssetMenu(
+    fileName = "ModifierData.asset",
+    menuName = SOAbilitySystem_Utility.MODIFIERDATA_SUBMENU + "Damage Over Time",
+    order = SOAbilitySystem_Utility.ASSET_MENU_ORDER_MODIFIERDATA + 0)]
+public class DamageOverTimeModifierData : ModifierData
+{
+    [Header("Damage Over Time Details")]
+    [SerializeField] private float damage;
+    [SerializeField] private ParametersGameEvent eventToRaise;
+
+    public override Modifier UnpackModifier(Entity toListen)
+    {
+        return new DamageOverTimeModifier(damage, baseDuraton, baseTickTime, eventToRaise, toListen);
+    }
+
+    public override void UnpackListener(Entity toListen)
+    {
+        eventToRaise.AddListener((parameters) =>
+        {
+            if (parameters.GetObjectInfo(DamageOverTimeModifier.DAMAGE_OVER_TIME_LISTENER) as Entity == toListen)
+                toListen.DamageHealth(parameters.GetFloatInfo(DamageOverTimeModifier.DAMAGE_OVER_TIME_DAMAGE, 0));
+        });
+    }
+}

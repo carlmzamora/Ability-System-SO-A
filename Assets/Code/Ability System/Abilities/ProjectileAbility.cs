@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using CustomScriptableObjectArchitecture;
 using ScriptableObjectArchitecture;
+using carlmzamora.AbilitySystem;
 
 [CreateAssetMenu(
         fileName = "ProjectileAbility.asset",
-        menuName = CustomSOArchitecture.ABILITIES_SUBMENU + "ProjectileAbility",
-        order = CustomSOArchitecture.ASSET_MENU_ORDER_ABILITIES + 0)]
+        menuName = SOAbilitySystem_Utility.ABILITIES_SUBMENU + "ProjectileAbility",
+        order = SOAbilitySystem_Utility.ASSET_MENU_ORDER_ABILITIES + 0)]
 public class ProjectileAbility : Ability
 {
     [Header("Projectile Ability Properties")]

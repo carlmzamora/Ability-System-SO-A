@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using ScriptableObjectArchitecture;
-using Unity.VisualScripting;
+using carlmzamora.AbilitySystem;
 
 public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
 {
     [SerializeField] protected List<Tag> tags = new();
     public List<Tag> Tags => tags;
 
-    protected List<Modifier> modifiers = new();
-    public List<Modifier> Modifiers => modifiers;
+    protected List<Modifier> selfModifiers = new();
+    public List<Modifier> SelfModifiers => selfModifiers;
 
-    protected List<ModifierData> storedModifiers = new();
-    public List<ModifierData> StoredModifiers => storedModifiers;
+    protected List<ModifierData> otherwardModifiers = new();
+    public List<ModifierData> OtherwardModifiers => otherwardModifiers;
 
     [SerializeField] private FloatReference maxHealth;
     public float MaxHealth => maxHealth.Value;
@@ -34,7 +34,7 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
 
     private void CreateModifier(ModifierData receivedModifierData)
     {
-        modifiers.Add(receivedModifierData.UnpackModifier(this)); //try to make this object type?
+        selfModifiers.Add(receivedModifierData.UnpackModifier(this)); //try to make this object type?
         receivedModifierData.UnpackListener(this);
     }
 
@@ -42,9 +42,9 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
     {
         //destroy other if on DestroyOnCollisionList
         ITaggable taggable = other.gameObject.GetComponent<ITaggable>();
-        if(taggable != null)
+        if (taggable != null)
         {
-            for(int i = 0; i < tags.Count; i++)
+            for (int i = 0; i < tags.Count; i++)
             {
                 Tag ownTag = tags[i];
                 for (int j = 0; j < taggable.Tags.Count; j++)
@@ -60,12 +60,12 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
 
         //take damage if projectile
         Projectile proj = other.gameObject.GetComponent<Projectile>();
-        if(proj != null)
+        if (proj != null)
         {
             DamageHealth(proj.Damage);
 
             //check all modifiers, not just one
-            CreateModifier(proj.StoredModifiers[0]);
+            CreateModifier(proj.OtherwardModifiers[0]);
         }
     }
 
@@ -81,9 +81,9 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
 
     private void HandleModifiers()
     {
-        for (int i = 0; i < modifiers.Count; i++)
+        for (int i = 0; i < selfModifiers.Count; i++)
         {
-            modifiers[i].Update();
+            selfModifiers[i].Update();
         }
     }
 }

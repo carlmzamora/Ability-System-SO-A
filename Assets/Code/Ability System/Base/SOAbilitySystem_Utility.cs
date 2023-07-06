@@ -1,6 +1,6 @@
-﻿namespace CustomScriptableObjectArchitecture
+﻿namespace carlmzamora.AbilitySystem
 {
-    public static class CustomSOArchitecture
+    public static class SOAbilitySystem_Utility
     {
         public const int ASSET_MENU_ORDER_ABILITIES = 131;
         public const int ASSET_MENU_ORDER_MODIFIERDATA = 132;

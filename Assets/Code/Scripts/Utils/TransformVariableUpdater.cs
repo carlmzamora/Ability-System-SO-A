@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using CustomScriptableObjectArchitecture;
-
 public class TransformVariableUpdater : MonoBehaviour
 {
     [SerializeField] private TransformVariable toUpdate;

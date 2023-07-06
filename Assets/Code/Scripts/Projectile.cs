@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using ScriptableObjectArchitecture;
+using carlmzamora.AbilitySystem;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour, ITaggable, IModifiable
 {
-    [SerializeField] private List<Modifier> modifiers = new();
-    public List<Modifier> Modifiers => modifiers;
+    [SerializeField] private List<Modifier> selfModifiers = new();
+    public List<Modifier> SelfModifiers => selfModifiers;
 
-    protected List<ModifierData> storedModifiers = new();
-    public List<ModifierData> StoredModifiers => storedModifiers;
+    protected List<ModifierData> otherwardModifiers = new();
+    public List<ModifierData> OtherwardModifiers => otherwardModifiers;
 
     private List<Tag> tags = new();
-    public List<Tag> Tags => tags;    
+    public List<Tag> Tags => tags;
 
     private Rigidbody rb;
 
@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour, ITaggable, IModifiable
         currentTravelSpeed = travelSpeed;
         currentLifetime = lifetime;
 
-        for(int i = 0; i < tagsToAdd.Count; i++)
+        for (int i = 0; i < tagsToAdd.Count; i++)
         {
             tags.Add(tagsToAdd[i]);
         }
@@ -65,7 +65,7 @@ public class Projectile : MonoBehaviour, ITaggable, IModifiable
     {
         for (int i = 0; i < modifiersFromAbility.Count; i++)
         {
-            storedModifiers.Add(modifiersFromAbility[i]);
+            otherwardModifiers.Add(modifiersFromAbility[i]);
         }
     }
 
