@@ -7,6 +7,7 @@ using ScriptableObjectArchitecture;
 [System.Serializable]
 public abstract class Modifier
 {
+    protected bool isInstant;
     protected float currentDuration = 0;
     protected float tickTime = 0;
     protected float nextTickTime = 0;
@@ -17,7 +18,7 @@ public abstract class Modifier
 
     public void Update()
     {
-        if (currentDuration < 0) Do(); //instant
+        if (isInstant) Do(); //instant
         else //countdown
         {
             if (currentDuration > 0)
