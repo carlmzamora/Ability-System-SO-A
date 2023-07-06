@@ -32,6 +32,7 @@ public abstract class Modifier
             }
             else
             {
+                DisposeSelf();
             }
         }        
     }
@@ -39,4 +40,6 @@ public abstract class Modifier
     public void Do() { }
 
     public virtual void Tick() { }
+
+    public virtual void DisposeSelf() { }
 }

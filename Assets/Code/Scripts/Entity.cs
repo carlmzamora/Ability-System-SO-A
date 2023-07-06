@@ -35,7 +35,7 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
     private void CreateModifier(ModifierData receivedModifierData)
     {
         selfModifiers.Add(receivedModifierData.UnpackModifier(this)); //try to make this object type?
-        receivedModifierData.UnpackListener(this);
+        //receivedModifierData.UnpackListener(this);
     }
 
     private void OnCollisionEnter(Collision other)

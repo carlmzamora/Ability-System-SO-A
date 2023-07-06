@@ -1,6 +1,7 @@
 using UnityEngine;
 using ScriptableObjectArchitecture;
 using carlmzamora.AbilitySystem;
+using System.Security.Cryptography;
 
 [CreateAssetMenu(
     fileName = "ModifierData.asset",
@@ -17,12 +18,14 @@ public class DamageOverTimeModifierData : ModifierData
         return new DamageOverTimeModifier(damage, baseDuraton, baseTickTime, eventToRaise, toListen);
     }
 
-    public override void UnpackListener(Entity toListen)
+    /*public override void UnpackListener(Entity toListen)
     {
-        eventToRaise.AddListener((parameters) =>
+        void response(Parameters parameters)
         {
             if (parameters.GetObjectInfo(DamageOverTimeModifier.DAMAGE_OVER_TIME_LISTENER) as Entity == toListen)
                 toListen.DamageHealth(parameters.GetFloatInfo(DamageOverTimeModifier.DAMAGE_OVER_TIME_DAMAGE, 0));
-        });
-    }
+        }
+
+        eventToRaise.AddListener(response);
+    }*/
 }

@@ -18,13 +18,32 @@ public class DamageOverTimeModifier : Modifier
         this.damage = damage;
         this.eventToRaise = eventToRaise;
         listeningEntity = toListen;
+
+        //DeployListener(listeningEntity);
     }
 
     public override void Tick()
     {
-        Parameters parameters = new();
+        /*Parameters parameters = new();
         parameters.PutInfo(DAMAGE_OVER_TIME_DAMAGE, damage);
         parameters.PutObjectInfo(DAMAGE_OVER_TIME_LISTENER, listeningEntity);
-        eventToRaise.Raise(parameters);
+        eventToRaise.Raise(parameters);*/
+        listeningEntity.DamageHealth(damage);
     }
+
+    public override void DisposeSelf()
+    {
+        listeningEntity.SelfModifiers.Remove(this);
+    }
+
+    /*public void DeployListener(Entity toListen)
+    {
+        void response(Parameters parameters)
+        {
+            if (parameters.GetObjectInfo(DAMAGE_OVER_TIME_LISTENER) as Entity == toListen)
+                toListen.DamageHealth(parameters.GetFloatInfo(DAMAGE_OVER_TIME_DAMAGE, 0));
+        }
+
+        eventToRaise.AddListener(response);
+    }*/
 }
