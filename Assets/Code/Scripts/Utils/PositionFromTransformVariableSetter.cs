@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using ScriptableObjectArchitecture;
+
 public class PositionFromTransformVariableSetter : MonoBehaviour
 {
     [SerializeField] private TransformVariable toSet;
