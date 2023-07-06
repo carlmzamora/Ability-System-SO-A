@@ -14,6 +14,6 @@ namespace carlmzamora.AbilitySystem
         public bool OnlyAffectsSelf => onlyAffectsSelf;
 
         public abstract Modifier UnpackModifier(Entity toListen);
-        //public abstract void UnpackListener(Entity toListen);
+        public abstract Modifier UnpackModifier();
     }
 }

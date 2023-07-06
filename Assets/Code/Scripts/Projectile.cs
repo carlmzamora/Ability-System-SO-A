@@ -10,8 +10,8 @@ public class Projectile : MonoBehaviour, ITaggable, IModifiable
     [SerializeField] private List<Modifier> selfModifiers = new();
     public List<Modifier> SelfModifiers => selfModifiers;
 
-    protected List<ModifierData> affectingModifiers = new();
-    public List<ModifierData> AffectingModifiers => affectingModifiers;
+    protected List<ModifierData> effectorModifiers = new();
+    public List<ModifierData> EffectorModifiers => effectorModifiers;
 
     private List<Tag> tags = new();
     public List<Tag> Tags => tags;
@@ -65,7 +65,21 @@ public class Projectile : MonoBehaviour, ITaggable, IModifiable
     {
         for (int i = 0; i < modifiersFromAbility.Count; i++)
         {
-            affectingModifiers.Add(modifiersFromAbility[i]);
+            //affectingModifiers.Add(modifiersFromAbility[i]);
+            selfModifiers.Add(modifiersFromAbility[i].UnpackModifier());
+        }
+
+        CollectEffectorModifiersFromSelf();
+    }
+
+    private void CollectEffectorModifiersFromSelf()
+    {
+        for(int i = 0; i < selfModifiers.Count; i++)
+        {
+            for(int j = 0; j < selfModifiers[i].ModifiersToAdd.Count; j++)
+            {
+                effectorModifiers.Add(selfModifiers[i].ModifiersToAdd[j]);
+            }
         }
     }
 

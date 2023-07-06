@@ -7,6 +7,6 @@ namespace carlmzamora.AbilitySystem
     public interface IModifiable
     {
         List<Modifier> SelfModifiers { get; }
-        List<ModifierData> AffectingModifiers { get; }
+        List<ModifierData> EffectorModifiers { get; }
     }
 }

@@ -13,8 +13,8 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
     protected List<Modifier> selfModifiers = new();
     public List<Modifier> SelfModifiers => selfModifiers;
 
-    protected List<ModifierData> affectingModifiers = new();
-    public List<ModifierData> AffectingModifiers => affectingModifiers;
+    protected List<ModifierData> effectorModifiers = new();
+    public List<ModifierData> EffectorModifiers => effectorModifiers;
 
     [SerializeField] private FloatReference maxHealth;
     public float MaxHealth => maxHealth.Value;
@@ -30,12 +30,6 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
     private void Update()
     {
         HandleModifiers();
-    }
-
-    private void CreateModifier(ModifierData receivedModifierData)
-    {
-        selfModifiers.Add(receivedModifierData.UnpackModifier(this)); //try to make this object type?
-        //receivedModifierData.UnpackListener(this);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -64,8 +58,10 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
         {
             DamageHealth(proj.Damage);
 
-            //check all modifiers, not just one
-            CreateModifier(proj.AffectingModifiers[0]);
+            for(int i = 0; i < proj.EffectorModifiers.Count; i++)
+            {
+                CreateModifier(proj.EffectorModifiers[i]);
+            }            
         }
     }
 
@@ -77,6 +73,12 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
     public virtual void DamageHealth(float value)
     {
         currentHealth = Mathf.Clamp(currentHealth -= value, 0.0f, maxHealth.Value);
+    }
+
+    private void CreateModifier(ModifierData receivedModifierData)
+    {
+        selfModifiers.Add(receivedModifierData.UnpackModifier(this)); //try to make this object type?
+        //receivedModifierData.UnpackListener(this);
     }
 
     private void HandleModifiers()

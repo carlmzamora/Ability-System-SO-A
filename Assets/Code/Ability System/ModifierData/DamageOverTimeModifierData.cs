@@ -4,7 +4,7 @@ using carlmzamora.AbilitySystem;
 using System.Security.Cryptography;
 
 [CreateAssetMenu(
-    fileName = "ModifierData.asset",
+    fileName = "DamageOverTimeModifierData.asset",
     menuName = SOAbilitySystem_Utility.MODIFIERDATA_SUBMENU + "Damage Over Time",
     order = SOAbilitySystem_Utility.ASSET_MENU_ORDER_MODIFIERDATA + 0)]
 public class DamageOverTimeModifierData : ModifierData
@@ -17,6 +17,12 @@ public class DamageOverTimeModifierData : ModifierData
     {
         return new DamageOverTimeModifier(damage, baseDuraton, baseTickTime, eventToRaise, toListen);
     }
+
+    public override Modifier UnpackModifier()
+    {
+        throw new System.NotImplementedException();
+    }
+
 
     /*public override void UnpackListener(Entity toListen)
     {

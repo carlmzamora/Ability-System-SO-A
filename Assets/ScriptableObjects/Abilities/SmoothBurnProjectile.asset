@@ -16,7 +16,7 @@ MonoBehaviour:
   duration: 0
   cooldown: 0.2
   projectileToSpawnPrefab: {fileID: 7376182849459072721, guid: 06d0d036aa8f75c4c9c93aa7c84697a4, type: 3}
-  spawnPoint: {fileID: 11400000, guid: b6fceade49c278e4e9029877d4e0cc5c, type: 2}
+  spawnPoint: {fileID: 11400000, guid: 7daad41618597974ca2b463de6790c58, type: 2}
   baseDamage:
     _useConstant: 1
     _constantValue: 50

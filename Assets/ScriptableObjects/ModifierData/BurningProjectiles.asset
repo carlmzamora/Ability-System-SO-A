@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f3b22b340c93b64d81c621bef239eb2, type: 3}
-  m_Name: SmoothBurn
+  m_Script: {fileID: 11500000, guid: 7e635191616c4ee4eaa933ffa47e7e16, type: 3}
+  m_Name: BurningProjectiles
   m_EditorClassIdentifier: 
-  baseDuraton: 10
-  baseTickTime: 0.1
+  baseDuraton: 0
+  baseTickTime: 0
   onlyAffectsSelf: 0
-  damage: 0.25
-  eventToRaise: {fileID: 11400000, guid: a2f2b12577b7a2145baeff2611354c87, type: 2}
+  modifiersToAdd:
+  - {fileID: 11400000, guid: 2625357ab6b5c6c49b3e82ca2fbfef7f, type: 2}

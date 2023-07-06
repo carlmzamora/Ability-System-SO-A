@@ -1179,7 +1179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 343e41031cd0c1f49817e63b3dc8b9c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toSet: {fileID: 11400000, guid: 84a26b0c2b66ce6429be39e73f44fa9a, type: 2}
+  variableToUse: {fileID: 11400000, guid: 6f9574891e220264881b5685064c1e7a, type: 2}
   offset: {x: 0, y: 20, z: -13}
 --- !u!114 &963194230
 MonoBehaviour:
@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f068278f6b93e0342a06c627e25afbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toUpdate: {fileID: 11400000, guid: 26d5cee0eb5309b48af5484791898068, type: 2}
+  toUpdate: {fileID: 11400000, guid: 7a91c9edaae06ba4787cda595117d59d, type: 2}
 --- !u!1 &1151705197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,7 +1208,7 @@ GameObject:
   - component: {fileID: 1151705199}
   - component: {fileID: 1151705198}
   m_Layer: 0
-  m_Name: Dummy (1)
+  m_Name: DUMMY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1446,7 +1446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1924446168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1616,6 +1616,7 @@ GameObject:
   - component: {fileID: 1975113851}
   - component: {fileID: 1975113852}
   - component: {fileID: 1975113853}
+  - component: {fileID: 1975113854}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1781,6 +1782,22 @@ MonoBehaviour:
   useMouseButton: 1
   keyToPress: 32
   mouseButtonInt: 0
+--- !u!114 &1975113854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975113843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829eacb8b7d5ba4fb75b3d669f78188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 91f641f47c944e54ab81cd4baefe35d0, type: 2}
+  useMouseButton: 1
+  keyToPress: 0
+  mouseButtonInt: 1
 --- !u!1 &2020526856
 GameObject:
   m_ObjectHideFlags: 0

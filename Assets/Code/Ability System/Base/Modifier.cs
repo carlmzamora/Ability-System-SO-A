@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using ScriptableObjectArchitecture;
+using carlmzamora.AbilitySystem;
 
 [System.Serializable]
 public abstract class Modifier
@@ -11,6 +11,9 @@ public abstract class Modifier
     protected float currentDuration = 0;
     protected float tickTime = 0;
     protected float nextTickTime = 0;
+
+    protected List<ModifierData> modifiersToAdd;
+    public List<ModifierData> ModifiersToAdd => modifiersToAdd;
 
     //TODO: Add stackable check
 
