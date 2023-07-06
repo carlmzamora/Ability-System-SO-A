@@ -6,11 +6,11 @@ using ScriptableObjectArchitecture;
 
 public class PositionFromTransformVariableSetter : MonoBehaviour
 {
-    [SerializeField] private TransformVariable toSet;
+    [SerializeField] private TransformVariable variableToUse;
     [SerializeField] private Vector3 offset;
 
     private void Update()
     {
-        if(toSet != null) transform.position = toSet.Value.position + offset;
+        if(variableToUse != null) transform.position = variableToUse.Value.position + offset;
     }
 }

@@ -23,7 +23,7 @@ public class DamageOverTimeModifier : Modifier
     {
         Parameters parameters = new();
         parameters.PutInfo(DAMAGE_OVER_TIME_DAMAGE, damage);
-        parameters.PutInfo(DAMAGE_OVER_TIME_LISTENER, listeningEntity);
+        parameters.PutObjectInfo(DAMAGE_OVER_TIME_LISTENER, listeningEntity);
         eventToRaise.Raise(parameters);
     }
 }

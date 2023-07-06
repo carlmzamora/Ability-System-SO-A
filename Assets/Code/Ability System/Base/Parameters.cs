@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 [System.Serializable]
@@ -25,7 +26,6 @@ public class Parameters
     private Dictionary<string, Vector4> vector4ListData;
     private Dictionary<string, Quaternion> quaternionListData;
 
-    //add Dictionaries
     public Parameters()
     {
     }
@@ -84,7 +84,7 @@ public class Parameters
         arrayListData.Add(parameterName, value);
     }
 
-    public void PutInfo(string parameterName, object value)
+    public void PutObjectInfo(string parameterName, object value)
     {
         objectListData ??= new();
         objectListData.Add(parameterName, value);

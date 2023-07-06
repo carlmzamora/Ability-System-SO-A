@@ -477,6 +477,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 119746257}
+    - target: {fileID: 6636820757395132225, guid: 956be857dca70534f95347db7adf4a3c, type: 3}
+      propertyPath: camTransform
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a91c9edaae06ba4787cda595117d59d, type: 2}
     - target: {fileID: 7548883182085360337, guid: 956be857dca70534f95347db7adf4a3c, type: 3}
       propertyPath: m_Name
       value: HealthBar
@@ -728,6 +732,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 119746257}
+    - target: {fileID: 6636820757395132225, guid: 956be857dca70534f95347db7adf4a3c, type: 3}
+      propertyPath: camTransform
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a91c9edaae06ba4787cda595117d59d, type: 2}
     - target: {fileID: 7548883182085360337, guid: 956be857dca70534f95347db7adf4a3c, type: 3}
       propertyPath: m_Name
       value: HealthBar
@@ -1591,7 +1599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f068278f6b93e0342a06c627e25afbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toUpdate: {fileID: 11400000, guid: b6fceade49c278e4e9029877d4e0cc5c, type: 2}
+  toUpdate: {fileID: 11400000, guid: 7daad41618597974ca2b463de6790c58, type: 2}
 --- !u!1 &1975113843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,7 +1764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f068278f6b93e0342a06c627e25afbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toUpdate: {fileID: 11400000, guid: 84a26b0c2b66ce6429be39e73f44fa9a, type: 2}
+  toUpdate: {fileID: 11400000, guid: 6f9574891e220264881b5685064c1e7a, type: 2}
 --- !u!114 &1975113853
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86a8b5178c33db148b9832572058917b, type: 3}
+  m_Script: {fileID: 11500000, guid: ed57677e16961904c92ef8a732d17877, type: 3}
   m_Name: PlayerTransform
   m_EditorClassIdentifier: 
   _value: {fileID: 0}

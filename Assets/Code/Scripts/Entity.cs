@@ -13,8 +13,8 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
     protected List<Modifier> selfModifiers = new();
     public List<Modifier> SelfModifiers => selfModifiers;
 
-    protected List<ModifierData> otherwardModifiers = new();
-    public List<ModifierData> OtherwardModifiers => otherwardModifiers;
+    protected List<ModifierData> affectingModifiers = new();
+    public List<ModifierData> AffectingModifiers => affectingModifiers;
 
     [SerializeField] private FloatReference maxHealth;
     public float MaxHealth => maxHealth.Value;
@@ -65,7 +65,7 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
             DamageHealth(proj.Damage);
 
             //check all modifiers, not just one
-            CreateModifier(proj.OtherwardModifiers[0]);
+            CreateModifier(proj.AffectingModifiers[0]);
         }
     }
 
