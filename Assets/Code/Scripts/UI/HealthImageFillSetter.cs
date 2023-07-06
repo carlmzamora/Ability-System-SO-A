@@ -16,7 +16,6 @@ public class HealthImageFillSetter : ImageFillSetter
             value = damageable.Health;
             max = damageable.MaxHealth;
         }
-
         bar.fillAmount = value / max;
     }
 }

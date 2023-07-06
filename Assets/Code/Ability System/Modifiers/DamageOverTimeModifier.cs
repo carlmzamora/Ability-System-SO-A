@@ -12,6 +12,8 @@ public class DamageOverTimeModifier : Modifier
     public DamageOverTimeModifier(float damage, float duration, float tickTime, ParametersGameEvent eventToRaise, Entity toListen)
     {
         isInstant = duration <= 0;
+        ticking = tickTime > 0;
+
         currentDuration = duration;
         this.tickTime = tickTime;
         nextTickTime = currentDuration - tickTime;

@@ -8,9 +8,12 @@ using carlmzamora.AbilitySystem;
 public abstract class Modifier
 {
     protected bool isInstant;
+    protected bool ticking;
     protected float currentDuration = 0;
     protected float tickTime = 0;
     protected float nextTickTime = 0;
+
+    private bool isDone;
 
     protected List<ModifierData> modifiersToAdd;
     public List<ModifierData> ModifiersToAdd => modifiersToAdd;
@@ -27,10 +30,21 @@ public abstract class Modifier
             if (currentDuration > 0)
             {
                 currentDuration -= Time.deltaTime;
-                if (currentDuration < nextTickTime)
+                if (ticking)
                 {
-                    Tick();
-                    nextTickTime -= tickTime;
+                    if (currentDuration < nextTickTime)
+                    {
+                        Tick();
+                        nextTickTime -= tickTime;
+                    }
+                }
+                else
+                {
+                    if (!isDone)
+                    {
+                        Do();
+                        isDone = true;
+                    }
                 }
             }
             else
@@ -40,7 +54,7 @@ public abstract class Modifier
         }        
     }
 
-    public void Do() { }
+    public virtual void Do() { }
 
     public virtual void Tick() { }
 

@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbe47bfb970b398478ace6194f829de5, type: 3}
-  m_Name: BasicProjectile
+  m_Name: Poke
   m_EditorClassIdentifier: 
-  Name: BasicProjectile
+  Name: Poke
   duration: 0
   cooldown: 0.2
-  projectileToSpawnPrefab: {fileID: 7376182849459072721, guid: f5c789a9660d67342a9049963a3a2b3f, type: 3}
+  projectileToSpawnPrefab: {fileID: 7376182849459072721, guid: 56bb66af602959f4494bae2f0e54865e, type: 3}
   spawnPoint: {fileID: 11400000, guid: 7daad41618597974ca2b463de6790c58, type: 2}
   baseDamage:
     _useConstant: 1
-    _constantValue: 10
-    _variable: {fileID: 11400000, guid: 4a640d3aee9801e4cba2d6f8aa147ffd, type: 2}
-  baseTravelSpeed: 1000
+    _constantValue: 0
+    _variable: {fileID: 0}
+  baseTravelSpeed: 3000
   baseLifetime: 2
   projectileTags:
   - {fileID: 11400000, guid: 4e1f251071a75f34e9340f3ea5d3cc70, type: 2}
   abilityModifiers:
-  - {fileID: 11400000, guid: 1564eaa2f3e6a2d4ea952cf4e08cfc32, type: 2}
+  - {fileID: 11400000, guid: fab9130d44884034fa203d5d2dc00393, type: 2}

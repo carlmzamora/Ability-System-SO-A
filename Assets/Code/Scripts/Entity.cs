@@ -22,7 +22,7 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
     [SerializeField, ReadOnly] private float currentHealth;
     public float Health => currentHealth;
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         currentHealth = maxHealth.Value;
     }
@@ -83,6 +83,7 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
 
     private void HandleModifiers()
     {
+        //Debug.Log(gameObject.name + ": " + selfModifiers.Count);
         for (int i = 0; i < selfModifiers.Count; i++)
         {
             selfModifiers[i].Update();

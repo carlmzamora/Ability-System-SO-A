@@ -10,6 +10,7 @@ using carlmzamora.AbilitySystem;
     order = SOAbilitySystem_Utility.ASSET_MENU_ORDER_MODIFIERDATA + 0)]
 public class AddsModifiersModifierData : ModifierData
 {
+    [Header("Adds Modifiers Modifier Details")]
     [SerializeField] private List<ModifierData> modifiersToAdd = new();
 
     public override Modifier UnpackModifier()
