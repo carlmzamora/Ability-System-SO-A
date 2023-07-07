@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e90616cfd1ca3c49a0d774e001cb1a5, type: 3}
-  m_Name: Chill
+  m_Script: {fileID: 11500000, guid: 7e635191616c4ee4eaa933ffa47e7e16, type: 3}
+  m_Name: SpeedUpProjectiles
   m_EditorClassIdentifier: 
-  baseDuraton: 5
+  baseDuraton: 0
   baseTickTime: 0
   onlyAffectsSelf: 0
-  slowPercent: 90
+  modifiersToAdd: []

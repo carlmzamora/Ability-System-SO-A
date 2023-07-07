@@ -11,7 +11,7 @@ public class Enemy : Entity, IMoving
     [SerializeField] private FloatReference baseMoveSpeed;
     public float BaseMoveSpeed => baseMoveSpeed.Value;
 
-    private float moveSpeedMultiplier;
+    private float moveSpeedMultiplier = 1;
 
     [SerializeField, ReadOnly] private float currentMoveSpeed;
     public float MoveSpeed => currentMoveSpeed;
@@ -30,6 +30,13 @@ public class Enemy : Entity, IMoving
         currentMoveSpeed = baseMoveSpeed.Value;
         StartCoroutine(Move());
     }
+
+    /*protected override void Update()
+    {
+        base.Update();
+
+        HandleMoveSpeedMultipliers();
+    }*/
 
     protected IEnumerator Move()
     {
@@ -53,15 +60,22 @@ public class Enemy : Entity, IMoving
         }
     }
 
+    private void HandleMoveSpeedMultipliers()
+    {
+
+    }
+
     private void ApplyMoveSpeedMultipliers()
-    { 
-        currentMoveSpeed = baseMoveSpeed.Value * moveSpeedMultiplier;
+    {
+        //Debug.Log("BEFORE -> base: " + baseMoveSpeed + " | current: " + currentMoveSpeed);
+        currentMoveSpeed = Mathf.Clamp((baseMoveSpeed.Value * moveSpeedMultiplier), 100, 2500);
+        Debug.Log("AFTER -> base: " + baseMoveSpeed + " | current: " + currentMoveSpeed);
     }
 
     //TODO: accumulating slow
     public void UpdateMoveSpeedMultipliers(float percent)
     {
-        moveSpeedMultiplier = 1 + (percent * 0.01f); //should add all the percents
+        moveSpeedMultiplier += (percent * 0.01f); //should add all the percents
 
         ApplyMoveSpeedMultipliers();
     }

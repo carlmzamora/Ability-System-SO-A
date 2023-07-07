@@ -4,14 +4,14 @@ using UnityEngine;
 
 using carlmzamora.AbilitySystem;
 
-public class SlowModifier : Modifier
+public class MovementSpeedModifier : Modifier
 {
-    private float slowPercent;
+    private float changePercent;
     private Entity listeningEntity;
 
-    public SlowModifier(float percent, float duration, Entity toListen)
+    public MovementSpeedModifier(float percent, float duration, Entity toListen)
     {
-        slowPercent = percent;
+        changePercent = percent;
         this.currentDuration = duration;
         listeningEntity = toListen;
     }
@@ -21,17 +21,16 @@ public class SlowModifier : Modifier
         IMoving moving = listeningEntity.GetComponent<IMoving>();
         if (moving != null)
         {
-            moving.UpdateMoveSpeedMultipliers(-slowPercent);
+            moving.UpdateMoveSpeedMultipliers(changePercent);
         }
     }
 
-    //TODO: accumulating slow
     public override void DisposeSelf()
     {
         IMoving moving = listeningEntity.GetComponent<IMoving>();
         if (moving != null)
         {
-            moving.UpdateMoveSpeedMultipliers(slowPercent);
+            moving.UpdateMoveSpeedMultipliers(-changePercent);
         }
         listeningEntity.SelfModifiers.Remove(this);
     }

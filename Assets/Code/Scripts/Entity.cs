@@ -27,7 +27,7 @@ public class Entity : MonoBehaviour, IDamageable, ITaggable, IModifiable
         currentHealth = maxHealth.Value;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         HandleModifiers();
     }
