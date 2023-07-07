@@ -2168,7 +2168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1829eacb8b7d5ba4fb75b3d669f78188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 91f641f47c944e54ab81cd4baefe35d0, type: 2}
+  ability: {fileID: 11400000, guid: bd068447ec6e04f48b0499370f163fd2, type: 2}
   useMouseButton: 1
   keyToPress: 0
   mouseButtonInt: 1

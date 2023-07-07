@@ -15,4 +15,4 @@ MonoBehaviour:
   baseDuraton: 10
   baseTickTime: 0
   onlyAffectsSelf: 0
-  slowPercent: 10
+  changePercent: -10

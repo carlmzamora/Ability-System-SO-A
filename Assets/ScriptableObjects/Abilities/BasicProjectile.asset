@@ -26,4 +26,4 @@ MonoBehaviour:
   projectileTags:
   - {fileID: 11400000, guid: 4e1f251071a75f34e9340f3ea5d3cc70, type: 2}
   abilityModifiers:
-  - {fileID: 11400000, guid: 1564eaa2f3e6a2d4ea952cf4e08cfc32, type: 2}
+  - {fileID: 11400000, guid: d0f50541e720d484da72aa75e3499bda, type: 2}

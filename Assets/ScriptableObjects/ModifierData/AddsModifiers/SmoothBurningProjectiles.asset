@@ -15,4 +15,5 @@ MonoBehaviour:
   baseDuraton: 0
   baseTickTime: 0
   onlyAffectsSelf: 0
-  modifiersToAdd: []
+  modifiersToAdd:
+  - {fileID: 11400000, guid: ed9894228284a7a44a7ffa3da8de449a, type: 2}

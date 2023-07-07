@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e90616cfd1ca3c49a0d774e001cb1a5, type: 3}
   m_Name: SuperChill
   m_EditorClassIdentifier: 
-  baseDuraton: 0
+  baseDuraton: 10
   baseTickTime: 0
   onlyAffectsSelf: 0
-  slowPercent: 0
+  changePercent: -30
